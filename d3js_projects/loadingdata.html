@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>D3 Test</title>
+        <script type="text/javascript" src="d3/d3.js"></script>
+    <style type='text/css'>
+
+
+
+
+    </style>
+    </head>
+
+
+    <body>
+        <script type='text/javascript'>
+
+           
+            d3.json('mydata.json',function (data) {// (all code that depends on fucntion should be here ))
+
+              var canvas = d3.select('body').append('svg')
+              .attr('width',500)
+              .attr('height',500)
+
+              canvas.selectAll('rect')
+              .data(data)
+              .enter()
+                .append('rect')
+                .attr('width', function(d) {return d.age * 10; } )
+                .attr('height',48)
+                .attr('y', function (d,i) {return i * 50;})
+                .attr('fill','blue')
+
+})
+          </script>
+    </body>
+</html>
